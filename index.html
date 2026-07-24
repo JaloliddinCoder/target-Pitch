@@ -1229,6 +1229,7 @@ h2{
   <span id="counter">01 / 20</span>
   <button id="prev" aria-label="Oldingi slayd">‹</button>
   <button id="next" aria-label="Keyingi slayd">›</button>
+  <button id="pdf" aria-label="PDF yuklab olish" title="PDF yuklab olish (Slaydlarni PDF formatida saqlash)" style="width:auto;padding:0 10px;font-size:12px;font-weight:600;color:var(--saffron);border-color:rgba(240,178,60,.4)">PDF</button>
   <button id="full" aria-label="To'liq ekran">⛶</button>
 </div>
 
@@ -1284,6 +1285,10 @@ h2{
 
   document.getElementById('next').onclick = function(){ show(i+1); };
   document.getElementById('prev').onclick = function(){ show(i-1); };
+  var pdfBtn = document.getElementById('pdf');
+  if (pdfBtn) {
+    pdfBtn.onclick = function(){ window.print(); };
+  }
   document.getElementById('full').onclick = function(){
     if(document.fullscreenElement){ document.exitFullscreen(); }
     else { document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); }
